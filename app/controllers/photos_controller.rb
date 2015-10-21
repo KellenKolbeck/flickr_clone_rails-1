@@ -15,7 +15,10 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     @photo.author = current_user.username
     @photo.user_id = current_user.id
-    @photo.content_tags.new(tag_params)
+    tags = tag_params[:name].split(" ")
+    tags.each do |tag|
+      @photo.content_tags.new(name: tag)
+    end
     if @photo.save
       redirect_to photos_path
     else

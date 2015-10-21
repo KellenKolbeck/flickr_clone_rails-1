@@ -18,6 +18,15 @@ class ContentTagsController < ApplicationController
     end
   end
 
+  def destroy
+    @content_tag = ContentTag.find(params[:id])
+    if @content_tag.destroy
+      redirect_to root_path()
+    else
+      render :edit
+    end
+  end
+
 private
 
   def content_tag_params
