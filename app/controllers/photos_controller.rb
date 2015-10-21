@@ -32,6 +32,19 @@ class PhotosController < ApplicationController
     redirect_to photos_path
   end
 
+  def edit
+    @photo = Photo.find(params[:id])
+  end
+
+  def update
+    @photo = Photo.find(params[:id])
+    if @photo.update(photo_params)
+      redirect_to photo_path(@photo)
+    else
+      render :edit
+    end
+  end
+
 private
 
   def photo_params
