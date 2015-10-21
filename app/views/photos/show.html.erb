@@ -1,4 +1,5 @@
 <%= image_tag (@photo.image_file_name) %>
+<%= @photo.description %>
 
 <%= link_to 'Delete', photo_path(@photo), data: {confirm: "Are You Sure?", method: "delete"} %>
 <%= link_to 'Edit', edit_photo_path(@photo) %>
