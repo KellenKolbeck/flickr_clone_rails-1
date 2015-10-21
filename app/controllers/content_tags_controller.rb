@@ -20,4 +20,7 @@ class ContentTagsController < ApplicationController
 
 private
 
+  def content_tag_params
+    params.require(:content_tag).permit(:name)
+  end
 end
