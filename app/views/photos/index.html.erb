@@ -1,1 +1,5 @@
 <%= link_to 'Add a new Photo', new_photo_path %>
+
+<% @photos.each do |photo| %>
+  <%= image_tag (photo.image_file_name) %>
+<% end %>
