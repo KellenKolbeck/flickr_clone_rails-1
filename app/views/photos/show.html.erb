@@ -2,3 +2,9 @@
 
 <%= link_to 'Delete', photo_path(@photo), data: {confirm: "Are You Sure?", method: "delete"} %>
 <%= link_to 'Edit', edit_photo_path(@photo) %>
+
+<br>
+
+<% @photo.content_tags.each do |tag| %>
+  <%= tag.name %>
+<% end %>

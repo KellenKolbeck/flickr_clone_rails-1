@@ -11,10 +11,10 @@ class PhotosController < ApplicationController
   end
 
   def create
-
     @photo = Photo.new(photo_params)
     @photo.author = current_user.username
     @photo.user_id = current_user.id
+    @photo.content_tags.new(tag_params)
     if @photo.save
       redirect_to photos_path
     else
@@ -24,6 +24,7 @@ class PhotosController < ApplicationController
 
   def show
     @photo = Photo.find(params[:id])
+    @ContentTag = ContentTag.all
   end
 
   def destroy
@@ -48,7 +49,11 @@ class PhotosController < ApplicationController
 private
 
   def photo_params
-    params.require(:photo).permit(:description, :image)
+    params.permit(:description, :image)
+  end
+
+  def tag_params
+    params.permit(:name)
   end
 
 end
