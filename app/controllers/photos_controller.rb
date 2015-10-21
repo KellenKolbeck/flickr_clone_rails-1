@@ -4,6 +4,7 @@ class PhotosController < ApplicationController
 
   def index
     @photos = Photo.all
+    @contenttags = ContentTag.all
   end
 
   def new
