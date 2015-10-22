@@ -1,27 +1,31 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Created using ruby v. 2.2.0, rails v. 4.2.4, postgres, MYsql and bootstrap.
 
-Things you may want to cover:
 
-* Ruby version
+* To use locally follow these instructions.
 
-* System dependencies
+* Clone Repo to local drive
 
-* Configuration
+* CD to project directory
 
-* Database creation
+* run bundle install
 
-* Database initialization
+* run rake db:create
 
-* How to run the test suite
+* run rake db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
+* run rake db:test:prepare
 
-* Deployment instructions
+* run rails s
 
-* ...
+* load 'localhost:3000' in preferred browser
+
+* enjoy.
+
+* To add images to this app, save them in the project folder under /app/assets/images and upload images from that directory.
+
+
 
 
 Please feel free to use a different markup language if you do not plan to run
