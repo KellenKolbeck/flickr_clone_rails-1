@@ -43,7 +43,6 @@ class PhotosController < ApplicationController
 
   def update
     @photo = Photo.find(params[:id])
-    binding.pry
     if @photo.update(photo_params)
       redirect_to photo_path(@photo)
     else
@@ -54,7 +53,7 @@ class PhotosController < ApplicationController
 private
 
   def photo_params
-    params.require(:photo).permit(:description, :image)
+    params.permit(:description, :image)
   end
 
   def tag_params

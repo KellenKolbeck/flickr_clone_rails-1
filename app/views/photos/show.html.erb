@@ -9,3 +9,19 @@
 <% @photo.content_tags.each do |tag| %>
   <%= link_to tag.name, edit_photo_content_tag_path(@photo, tag)  %>
 <% end %>
+<br>
+<hr>
+<%= link_to 'Add Comment', new_photo_comment_path(@photo) %>
+<h3>Comments</h3>
+<% @photo.comments.each do |comment| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= comment.author %>
+    </div>
+    <div class="panel-body">
+      <p><%= comment.content %></p>
+      <small><%= comment.created_at.in_time_zone.strftime("%m/%d/%Y at %I:%M%p") %></small>
+    </div>
+  </div>
+  <br>
+<% end %>
