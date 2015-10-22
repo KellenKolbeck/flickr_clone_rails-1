@@ -1,0 +1,5 @@
+<%= @user.username %>
+
+<% @user.favorites.each do |favorite| %>
+  <%= image_tag Photo.find(favorite.photo_id).image_file_name %>
+<% end %>

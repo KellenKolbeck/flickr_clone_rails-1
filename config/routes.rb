@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :users
+  resources :users, :except => [:index, :create, :new, :edit, :update, :destroy]
 
   resources :photos do
     resources :favorites
