@@ -12,6 +12,12 @@
 <br>
 <hr>
 <%= link_to 'Add Comment', new_photo_comment_path(@photo) %>
+<br>
+<% @photo.user_tags.each do |usertag| %>
+  <%= usertag.name[2..(usertag.name.length/2) - 3]%>
+  <!-- thanks mike  -->
+<% end %>
+<br>
 <h3>Comments</h3>
 <% @photo.comments.each do |comment| %>
   <div class="panel panel-default">
@@ -35,3 +41,5 @@
 <br>
 
 <%= link_to 'Favorite Photo', create_favorite_path(@photo), method: :post %>
+
+<%= link_to 'Tag Users', new_photo_user_tag_path(@photo) %>

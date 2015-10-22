@@ -9,6 +9,7 @@ class PhotosController < ApplicationController
 
   def new
     @photo = Photo.new
+    @users = User.all
   end
 
   def create
@@ -19,7 +20,13 @@ class PhotosController < ApplicationController
     tags.each do |tag|
       @photo.content_tags.new(name: tag)
     end
+
+
     if @photo.save
+      user_tags = params[:User]
+      user_tags.each do |usertag|
+        @photo.user_tags.create(name: usertag, photo_id: @photo.id)
+      end
       redirect_to photos_path
     else
       render :new
@@ -29,6 +36,7 @@ class PhotosController < ApplicationController
   def show
     @photo = Photo.find(params[:id])
     @ContentTag = ContentTag.all
+    @users = User.all
   end
 
   def destroy
@@ -59,5 +67,4 @@ private
   def tag_params
     params.permit(:name)
   end
-
 end

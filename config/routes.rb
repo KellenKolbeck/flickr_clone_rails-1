@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   end
 
   resources :photos do
+    resources :user_tags
+  end
+
+  resources :photos do
     resources :comments
   end
 

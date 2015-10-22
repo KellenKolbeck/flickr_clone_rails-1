@@ -10,6 +10,12 @@
     <%= text_field_tag :name %>
   </div>
 
+  <div class="form-group">
+    <% @users.each do |u| %>
+    <%= label_tag u.name %>
+    <%= check_box_tag "User[#{u.name}]", u.name %>
+    <% end %>
+  </div>
 
   <div class="form-group">
     <%= label_tag "Upload" %>
