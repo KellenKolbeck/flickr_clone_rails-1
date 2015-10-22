@@ -21,6 +21,11 @@
     <div class="panel-body">
       <p><%= comment.content %></p>
       <small><%= comment.created_at.in_time_zone.strftime("%m/%d/%Y at %I:%M%p") %></small>
+      <br>
+      <% if current_user.username === comment.author %>
+        <small><%= link_to "Edit", edit_photo_comment_path(@photo, comment) %></small>
+        <small><%= link_to "Delete", photo_comment_path(@photo, comment), data: {confirm: "You sure?", method: 'delete'} %></small>
+      <% end %>
     </div>
   </div>
   <br>
