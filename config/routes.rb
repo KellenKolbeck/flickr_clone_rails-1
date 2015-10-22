@@ -9,5 +9,17 @@ Rails.application.routes.draw do
   resources :photos do
     resources :comments
   end
-  
+
+  resources :users
+
+  resources :photos do
+    resources :favorites
+  end
+  # post '/photo/:photo_id/favorites' => 'favorites#create'
+  post '/photos/:photo_id/favorite' => "favorites#create", as: :create_favorite
+
 end
+
+
+# get "/helpcenter" => "forums#index", :as => :forums
+# post "/helpcenter" => "forums#create", :as => :create_forum
